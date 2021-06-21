@@ -8,6 +8,7 @@ public class EmployeeWage {
                 int empHrs=0;
                 int dailyWage;
                 int totalWage = 0;
+                int totalWorkingHrs = 0;
                 for (int i=1;i<WORKING_DAYS;i++){
                         double empCheck=Math.floor(Math.random()*10)%3;
                         switch ((int)empCheck) {
@@ -20,8 +21,13 @@ public class EmployeeWage {
                                 default:
                                         empHrs=0;
                         }
+                        if (totalWorkingHrs==100 || i==20)
+                        {
+                                break;
+                        }
                         dailyWage=(WAGE_PER_HOUR*empHrs);
                         totalWage+=dailyWage;
+                        totalWorkingHrs+=empHrs;
                 }
                 System.out.println("Salary per month is:"+totalWage);
         }
